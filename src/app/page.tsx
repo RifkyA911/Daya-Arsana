@@ -10,41 +10,25 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import AnimatedBackground from "./_components/AnimatedBackground";
+import Hero from "./_components/Hero";
+import Features from "./_components/Features";
+import Partnership from "./_components/Partnership";
+import InfiniteMarquee from "./_components/InfiniteMarquee";
+import CTA from "./_components/CTA";
+import Footer from "./_components/Footer";
+import Navbar from "./_components/Navbar";
 export default function Home() {
   return (
-    <div className="container mx-auto p-4 max-w-[1440px]">
-      <Tabs defaultValue="table">
-        <TabsList>
-          <TabsTrigger value="table">Table</TabsTrigger>
-          <TabsTrigger value="dialog-form">Dialog Form</TabsTrigger>
-        </TabsList>
-        <TabsContent value="dialog-form">
-          <Card>
-            <CardContent className="grid gap-6">
-              <DynamicDialogFormExample />
-
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="table">
-          <Card>
-            {/* <CardHeader>
-              <CardTitle>Password</CardTitle>
-              <CardDescription>
-                Change your password here. After saving, you&apos;ll be logged
-                out.
-              </CardDescription>
-            </CardHeader> */}
-            <CardContent className="grid gap-6">
-              <DataTableExample />
-
-            </CardContent>
-            {/* <CardFooter>
-              <Button>Save password</Button>
-            </CardFooter> */}
-          </Card>
-        </TabsContent>
-      </Tabs>
+    <div className="container mx-auto p-4 min-h-screen xmax-w-[1440px] font-sans">
+      <AnimatedBackground />
+      <Navbar />
+      <Hero />
+      <Features />
+      <Partnership />
+      <InfiniteMarquee />
+      <CTA />
+      <Footer />
     </div>
   );
 }

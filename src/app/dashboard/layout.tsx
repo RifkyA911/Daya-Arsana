@@ -8,6 +8,13 @@ import { DashboardSidebar } from "./_components/dashboard-sidebar";
 import { DashboardContainer } from "./_components/dashboard-container";
 import { DashboardNavbar } from "./_components/dashboard-navbar";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { DM_Sans } from "next/font/google";
+
+const dmSans = DM_Sans({
+    subsets: ["latin"],
+    weight: ["400", "500", "700"],  // pilih sesuai kebutuhan
+    variable: "--font-dm-sans",
+});
 
 export default async function DashboardLayout({
     children,
