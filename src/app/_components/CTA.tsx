@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,14 +98,16 @@ const CTA = () => {
           ENGINEER YOUR REVENUE GROWTH
         </p>
 
-        <button
-          ref={buttonRef}
-          className="w-64 h-64 rounded-full bg-amber-500 text-primary-foreground font-medium 
+        <Link href="https://wa.me/6285155394885" target="_blank" rel="noopener noreferrer">
+          <Button
+            ref={buttonRef}
+            className="w-64 h-64 rounded-full bg-amber-500 text-primary-foreground font-medium 
           flex items-center justify-center mx-auto shadow-xl shadow-primary/30
-          hover:shadow-2xl hover:shadow-primary/40 transition-shadow duration-300"
-        >
-          <span className="text-2xl">Book Strategy<br />Call</span>
-        </button>
+          hover:shadow-2xl hover:shadow-primary/40 transition-shadow duration-300 cursor-pointer"
+          >
+            <span className="text-2xl">Book Strategy<br />Call</span>
+          </Button>
+        </Link>
       </div>
     </section>
   );
