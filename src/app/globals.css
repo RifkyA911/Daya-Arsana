@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant k2 (@media (min-width: var(--breakpoint-2k)));
 
 @theme inline {
   --color-background: var(--background);
@@ -41,6 +42,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --breakpoint-2k: 1900px;
 }
 
 :root {
