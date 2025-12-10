@@ -3,6 +3,23 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { DM_Sans, Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+    subsets: ["latin"],
+    weight: ["400"],
+    display: "swap",
+    variable: "--font-playfair",
+    preload: true,
+    adjustFontFallback: false,
+    fallback: ["serif"],
+});
+
+const dmSans = DM_Sans({
+    subsets: ["latin"],
+    weight: ["500"],
+});
 
 const Hero = () => {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -12,79 +29,143 @@ const Hero = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Heading fade in from left to right
-            gsap.from(headingRef.current, {
-                x: -100,
-                delay: 0.3,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power3.out",
+            const mm = gsap.matchMedia();
+
+            // 🟦 Mobile: width < 1024px
+            mm.add("(max-width: 1023px)", () => {
+                gsap.from(".hero-heading", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: "power3.out",
+                });
+
+                gsap.from(".hero-img", {
+                    y: 120,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.5,
+                });
+
+                gsap.from(".hero-text", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 1.1,
+                });
+
+                gsap.from(".hero-cta", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 1.6,
+                });
+
+
             });
 
-            // Image fade in from bottom to top
-            gsap.from(imageRef.current, {
-                y: 100,
-                opacity: 0,
-                delay: 1.5,
-                duration: 1.2,
-                ease: "power3.out",
-            });
+            // 🟩 Desktop: width ≥ 1024px
+            mm.add("(min-width: 1024px)", () => {
+                gsap.from(".hero-heading", {
+                    x: -100,
+                    opacity: 0,
+                    duration: 1.2,
+                });
 
-            // gsap.from(ctaRef.current?.children || [], {
-            //     y: 30,
-            //     opacity: 0,
-            //     duration: 0.8,
-            //     stagger: 0.15,
-            //     delay: 0.5,
-            //     ease: "power3.out",
-            // });
+                gsap.from(".hero-text", {
+                    x: -100,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 0.1,
+                });
+
+                gsap.from(".hero-cta", {
+                    x: -100,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 0.1,
+                });
+
+                gsap.from(".hero-img", {
+                    y: 120,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 1.5,
+                });
+            });
         }, heroRef);
 
         return () => ctx.revert();
     }, []);
 
+
     return (
-        <section ref={heroRef} className="relative min-h-screen pt-4 px-6 lg:px-12 font-sans">
-            <div className="max-w-8xl mx-auto">
+        <section ref={heroRef} className="relative min-h-screen pt-12 2k:pt-16! px-4 lg:px-8 font-sans">
+            <div className="mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div
                         ref={headingRef}
                     >
-                        <h1
-                            className="text-5xl md:text-6xl lg:text-8xl font-serif leading-[1.1] mb-8"
+                        <div
+                            className="hero-heading"
                         >
-                            <span className="italic">ACCELERATE</span>
-                            <br />
-                            <span className="font-sans">
-                                YOUR MARKET
-                            </span>
-                            <br />
-                            <span className="italic text-primary">PENETRATION</span>
-                        </h1>
-                        <div className="flex flex-col gap-2 text-muted-foreground max-w-md mb-8 leading-relaxed ">
-                            <span className="font-medium">
+                            <h1
+                                className="text-5xl md:text-6xl lg:text-8xl 2k:text-[128px]! leading-[1.1] mb-8"
+                            >
+                                <span className={`${playfair.className} italic`}>ACCELERATE</span>
+                                <br />
+                                <span className="font-sans">
+                                    YOUR MARKET
+                                </span>
+                                <br />
+                                <span className="italic text-primary">PENETRATION</span>
+                            </h1>
+                        </div>
+                        <div className="hero-img relative flex lg:hidden justify-center lg:justify-end mb-4 mx-auto">
+                            <Image
+                                ref={imageRef}
+                                src={"/images/hero-woman.png"}
+                                alt="Professional business consultant"
+                                width={900}
+                                height={900}
+                                className="
+                                w-[550px]    
+                                2xl:w-[640px]
+                                2k:w-[830px]!
+                            "
+                            />
+                        </div>
+                        <div
+                            className={`hero-text ${dmSans.className} flex flex-col gap-2 max-w-md mb-8 leading-relaxed md:text-lg lg:text-2xl w-full `}>
+                            <span className="font-bold">
                                 Delivering end-to-end digital solutions:
                             </span>
-                            <span>
+                            <span className="lg:w-[760px]">
                                 from high-performance software engineering to data-driven marketing and fortified infrastructure.
                             </span>
                         </div>
-                        <div ref={ctaRef} className="flex flex-wrap gap-4 ">
-                            <Button className="bg-orange-400 rounded-none py-4">
+                        <div ref={ctaRef} className="hero-cta flex flex-wrap gap-4 ">
+                            <Button className="bg-orange-400 rounded-none py-8 text-base 2k:text-xl hover:bg-white hover:text-orange-400 border border-orange-400">
                                 Book Strategy Call
                             </Button>
-                            <button className="btn-outline">
+                            <Button className="bg-transparent rounded-none text-dark py-8 text-base 2k:text-xl hover:bg-white hover:text-orange-400 hover:underline hover:underline-offset-4">
                                 Learn More →
-                            </button>
+                            </Button>
                         </div>
                     </div>
 
-                    <div className="relative flex justify-center lg:justify-end">
-                        <img
+                    <div className="hero-img relative hidden lg:flex justify-center lg:justify-end ">
+                        <Image
                             ref={imageRef}
-                            src={"images/hero-woman.png"}
+                            src={"/images/hero-woman.png"}
                             alt="Professional business consultant"
-                            className="relative z-10 max-w-sm lg:max-w-md xl:max-w-lg object-contain"
+                            width={900}
+                            height={900}
+                            className="
+                                w-[550px]    
+                                2xl:w-[640px]
+                                2k:w-[830px]!
+                            "
                         />
                     </div>
                 </div>
