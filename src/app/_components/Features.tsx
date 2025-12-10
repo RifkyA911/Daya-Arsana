@@ -3,12 +3,24 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+    subsets: ["latin"],
+    weight: ["400"],
+    style: ["italic", "normal"],
+    display: "swap",
+    variable: "--font-playfair",
+    preload: true,
+    adjustFontFallback: false,
+    fallback: ["serif"],
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
 const features = [
     {
-        title: "Product Development ",
+        title: "PRODUCT DEVELOPMENT",
         description: "End-to-end agile development tailored to streamline business operations and deliver a seamless, high-speed customer journey",
         stat: "200+",
         statLabel: "Brands Transformed",
@@ -38,52 +50,166 @@ const Features = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from(".feature-card", {
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-                // stagger: 0.15,
-                // ease: "power3.out",
-                // scrollTrigger: {
-                //     trigger: sectionRef.current,
-                //     start: "top 80%",
-                //     toggleActions: "play none none none",
-                // },
+            gsap.registerPlugin(ScrollTrigger);
+            const mm = gsap.matchMedia();
+
+            // 🟦 Mobile (max-width: 1023px)
+            mm.add("(max-width: 1023px)", () => {
+
+                gsap.from(".section-heading", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: ".section-heading",
+                        start: "top 85%",
+                    },
+                });
+
+                gsap.from(".section-img", {
+                    y: 120,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.2,
+                    scrollTrigger: {
+                        trigger: ".section-img",
+                        start: "top 85%",
+                    },
+                });
+
+                gsap.from(".section-text", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 0.4,
+                    scrollTrigger: {
+                        trigger: ".section-text",
+                        start: "top 85%",
+                    },
+                });
+
+                gsap.from(".section-cta", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 0.6,
+                    scrollTrigger: {
+                        trigger: ".section-cta",
+                        start: "top 85%",
+                    },
+                });
             });
+
+            // 🟩 Desktop (min-width: 1024px)
+            mm.add("(min-width: 1024px)", () => {
+
+                gsap.from(".section-heading", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.2,
+                    scrollTrigger: {
+                        trigger: ".section-heading",
+                        start: "top 85%",
+                    },
+                });
+
+                gsap.from(".section-text", {
+                    x: -100,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 0.1,
+                    scrollTrigger: {
+                        trigger: ".section-text",
+                        start: "top 85%",
+                    },
+                });
+
+                gsap.from(".section-cta", {
+                    x: -100,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 0.2,
+                    scrollTrigger: {
+                        trigger: ".section-cta",
+                        start: "top 85%",
+                    },
+                });
+
+                gsap.from(".section-img", {
+                    y: 120,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 0.3,
+                    scrollTrigger: {
+                        trigger: ".section-img",
+                        start: "top 85%",
+                    },
+                });
+            });
+
+            // Feature card
+            // gsap.from(".feature-card", {
+            //     y: 60,
+            //     opacity: 0,
+            //     duration: 0.8,
+            //     stagger: 0.15,
+            //     ease: "power3.out",
+            //     scrollTrigger: {
+            //         trigger: sectionRef.current,
+            //         start: "top 90%",
+            //     },
+            // });
+
+            gsap.from(".feature-card", {
+                y: 80,
+                opacity: 0,
+                duration: 0.9,
+                ease: "power3.out",
+                stagger: 0.2, // <-- per looping 0.2s
+                scrollTrigger: {
+                    trigger: ".section-card", // <-- parent grid kamu
+                    start: "top 80%",
+                    toggleActions: "play none none none",
+                },
+            });
+
+
         }, sectionRef);
 
         return () => ctx.revert();
     }, []);
 
+
     return (
         <section id="features" ref={sectionRef} className="py-20 px-6 lg:px-12 font-sans">
-            <div className="max-w-8xl mx-auto">
-                <h2 className="text-3xl md:text-4xl lg:text-7xl mb-4">
-                    INTEGRATED <span className="font-serif italic">STRATEGIES</span>
+            <div className="mx-auto">
+                <h2 className="section-heading text-3xl md:text-4xl lg:text-8xl 2k:text-[128px]! mb-4">
+                    INTEGRATED <span className={`${playfair.className} italic`}>STRATEGIES</span>
                     <br />
-                    FOR <span className="font-serif italic">SCALABLE</span>
+                    FOR <span className={`${playfair.className} italic`}>SCALABLE</span>
                     <br />
-                    <span className="font-serif italic">REVENUE</span> GROWTH
+                    <span className={`${playfair.className} italic`}>REVENUE</span> GROWTH
                 </h2>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 mt-16">
+                <div className="section-features grid md:grid-cols-2 lg:grid-cols-4 mt-16">
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="feature-card text-muted-foreground p-6 bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:bg-amber-500 hover:text-white"
+                            className="section-card text-muted-foreground p-6 bg-card border border-border hover:border-amber-500 transition-all duration-300 hover:shadow-lg hover:bg-amber-500 hover:text-white"
                         >
-                            <h3 className="text-xs font-semibold tracking-wider mb-4">
+                            <h3 className="text-xl font-semibold tracking-wider mb-4">
                                 {feature.title}
                             </h3>
-                            <p className="text-sm mb-6 leading-relaxed">
+                            <p className="text-lg mb-6 leading-relaxed">
                                 {feature.description}
                             </p>
-                            <div className="pt-4 border-t border-border">
+                            {/* <div className="pt-4 border-t border-border">
                                 <p className="text-2xl font-serif font-semibold text-primary">
                                     {feature.stat}
                                 </p>
                                 <p className="text-xs">{feature.statLabel}</p>
-                            </div>
+                            </div> */}
                         </div>
                     ))}
                 </div>
