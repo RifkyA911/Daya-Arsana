@@ -56,8 +56,8 @@ const AnimatedBackground = () => {
                     <Image
                         src="/images/background-dot.png"
                         alt="Dots"
-                        width={200}
-                        height={180}
+                        width={600}
+                        height={680}
                     />
                 </div>
             ))}
