@@ -1,11 +1,11 @@
-import * as jwt from "jsonwebtoken";
+// import * as jwt from "jsonwebtoken";
 
-const JWT_SECRET: string =
-  process.env.NEXT_PUBLIC_JWT_SECRET || "your_jwt_secret_key";
+// const JWT_SECRET: string =
+//   process.env.NEXT_PUBLIC_JWT_SECRET || "your_jwt_secret_key";
 
-export const signJWTToken = (payload: object, options?: jwt.SignOptions) => {
-  return jwt.sign(payload, JWT_SECRET, options);
-};
+// export const signJWTToken = (payload: object, options?: jwt.SignOptions) => {
+//   return jwt.sign(payload, JWT_SECRET, options);
+// };
 
 // export const verifyJWTToken = (
 //   token?: string | null
