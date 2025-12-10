@@ -5,10 +5,12 @@ import gsap from "gsap";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { DM_Sans, Playfair_Display } from "next/font/google";
+import Link from "next/link";
 
 const playfair = Playfair_Display({
     subsets: ["latin"],
     weight: ["400"],
+    style: ["italic", "normal"],
     display: "swap",
     variable: "--font-playfair",
     preload: true,
@@ -118,7 +120,7 @@ const Hero = () => {
                                     YOUR MARKET
                                 </span>
                                 <br />
-                                <span className="italic text-primary">PENETRATION</span>
+                                <span className={`${playfair.className} italic`}>PENETRATION</span>
                             </h1>
                         </div>
                         <div className="hero-img relative flex lg:hidden justify-center lg:justify-end mb-4 mx-auto">
@@ -145,12 +147,16 @@ const Hero = () => {
                             </span>
                         </div>
                         <div ref={ctaRef} className="hero-cta flex flex-wrap gap-4 ">
-                            <Button className="bg-orange-400 rounded-none py-8 text-base 2k:text-xl hover:bg-white hover:text-orange-400 border border-orange-400">
-                                Book Strategy Call
-                            </Button>
-                            <Button className="bg-transparent rounded-none text-dark py-8 text-base 2k:text-xl hover:bg-white hover:text-orange-400 hover:underline hover:underline-offset-4">
-                                Learn More →
-                            </Button>
+                            <Link href={`https://wa.me/6285155394885`} target="_blank" rel="noopener noreferrer">
+                                <Button className="bg-orange-400 rounded-none py-8 text-base 2k:text-xl hover:bg-white hover:text-orange-400 border border-orange-400">
+                                    Book Strategy Call
+                                </Button>
+                            </Link>
+                            <Link href={`#features`} rel="noopener noreferrer">
+                                <Button className="bg-transparent rounded-none text-dark py-8 text-base 2k:text-xl hover:bg-transparent hover:text-orange-400 hover:underline hover:underline-offset-4">
+                                    Learn More →
+                                </Button>
+                            </Link>
                         </div>
                     </div>
 
