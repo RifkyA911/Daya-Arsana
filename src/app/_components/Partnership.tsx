@@ -3,6 +3,18 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic", "normal"],
+  display: "swap",
+  variable: "--font-playfair",
+  preload: true,
+  adjustFontFallback: false,
+  fallback: ["serif"],
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,11 +42,11 @@ const Partnership = () => {
   return (
     <section id="partnership" ref={sectionRef} className="py-16 px-6 lg:px-12">
       <div className="max-w-8xl mx-auto">
-        <p className="font-sans partnership-text text-xl md:text-2xl lg:text-6xl leading-relaxed text-foreground/90">
+        <p className="font-sans partnership-text text-xl md:text-2xl lg:text-4xl 2k:text-[80px]! leading-relaxed text-foreground/90">
           PARTNERING WITH VISIONARY BRANDS TO SECURE MARKET{" "}
-          <span className="font-serif italic">DOMINANCE</span> VIA AGILE TECH
+          <span className={`${playfair.className} italic`}>DOMINANCE</span> VIA AGILE TECH
           INFRASTRUCTURE, DATA-DRIVEN BRANDING, AND{" "}
-          <span className="font-serif italic">PERFORMANCE-ORIENTED</span> MARKETING
+          <span className={`${playfair.className} italic`}>PERFORMANCE-ORIENTED</span> MARKETING
           STRATEGIES
         </p>
       </div>
