@@ -47,6 +47,7 @@ const features = [
 
 const Features = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const cardsRef = useRef<Array<HTMLDivElement | null>>([]);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -161,17 +162,19 @@ const Features = () => {
             //     },
             // });
 
-            gsap.from(".feature-card", {
-                y: 80,
-                opacity: 0,
-                duration: 0.9,
-                ease: "power3.out",
-                stagger: 0.2, // <-- per looping 0.2s
-                scrollTrigger: {
-                    trigger: ".section-card", // <-- parent grid kamu
-                    start: "top 80%",
-                    toggleActions: "play none none none",
-                },
+            cardsRef.current.forEach((card, i) => {
+                gsap.from(card, {
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.6,
+                    delay: i * 0.2,        // ⬅️ antar item delay 0.3
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,       // ⬅️ tiap card punya trigger sendiri
+                        start: "top 85%",
+                        toggleActions: "play none none none",
+                    },
+                });
             });
 
 
@@ -196,8 +199,10 @@ const Features = () => {
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="section-card text-muted-foreground p-6 bg-card border border-border hover:border-amber-500 transition-all duration-300 hover:shadow-lg hover:bg-amber-500 hover:text-white"
+                            ref={(el) => { cardsRef.current[index] = el; }}
+                            className="flex flex-col justify-center feature-card min-h-[340px] p-6 bg-card border border-border hover:border-amber-500 transition-all duration-300 hover:shadow-lg hover:bg-amber-500 hover:text-white"
                         >
+
                             <h3 className="text-xl font-semibold tracking-wider mb-4">
                                 {feature.title}
                             </h3>
