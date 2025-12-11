@@ -5,6 +5,18 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic", "normal"],
+  display: "swap",
+  variable: "--font-playfair",
+  preload: true,
+  adjustFontFallback: false,
+  fallback: ["serif"],
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,20 +100,20 @@ const CTA = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-24 px-6 lg:px-12 bg-card border-y border-border"
+      className="py-24 px-6 lg:px-12 bg-card "
     >
-      <div className="max-w-4xl mx-auto text-center cta-content">
-        <h2 className="text-4xl md:text-5xl lg:text-7xl  mb-4">
-          READY TO <span className="font-serif italic">SCALE?</span>
+      <div className="mx-auto text-center cta-content">
+        <h2 className="text-4xl md:text-5xl lg:text-8xl 2k:text-[180px]! mb-4">
+          READY TO <span className={`${playfair.className} italic `}>SCALE</span>?
         </h2>
-        <p className="text-lg text-muted-foreground mb-12">
+        <p className="lg:text-4xl 2k:text-[80px]! mt-8 mb-12">
           ENGINEER YOUR REVENUE GROWTH
         </p>
 
         <Link href="https://wa.me/6285155394885" target="_blank" rel="noopener noreferrer">
           <Button
             ref={buttonRef}
-            className="w-64 h-64 rounded-full bg-amber-500 text-primary-foreground font-medium 
+            className="my-8 w-72 h-72 rounded-full bg-orange-500 text-primary-foreground font-medium 
           flex items-center justify-center mx-auto shadow-xl shadow-primary/30
           hover:shadow-2xl hover:shadow-primary/40 transition-shadow duration-300 cursor-pointer"
           >
