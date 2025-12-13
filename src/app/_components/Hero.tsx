@@ -112,7 +112,7 @@ const Hero = () => {
                             className="hero-heading"
                         >
                             <h1
-                                className="text-5xl md:text-6xl lg:text-8xl 2k:text-[128px]! leading-[1.1] mb-8"
+                                className="text-6xl lg:text-8xl 2k:text-[128px]! leading-[1.1] mb-8"
                             >
                                 <span className={`${playfair.className} italic`}>ACCELERATE</span>
                                 <br />
@@ -123,7 +123,7 @@ const Hero = () => {
                                 <span className={`${playfair.className} italic`}>PENETRATION</span>
                             </h1>
                         </div>
-                        <div className="hero-img relative flex lg:hidden justify-center lg:justify-end mb-4 mx-auto">
+                        <div className="hero-img relative flex lg:hidden justify-center lg:justify-end mb-8 mx-auto">
                             <Image
                                 ref={imageRef}
                                 src={"/images/hero-woman.png"}
@@ -131,14 +131,15 @@ const Hero = () => {
                                 width={900}
                                 height={900}
                                 className="
-                                w-[550px]    
+                                w-[380px]    
+                                md:w-[550px]    
                                 2xl:w-[640px]
                                 2k:w-[830px]!
                             "
                             />
                         </div>
                         <div
-                            className={`hero-text ${dmSans.className} flex flex-col gap-2 max-w-md mb-8 leading-relaxed md:text-lg lg:text-2xl w-full `}>
+                            className={`hero-text ${dmSans.className} flex flex-col gap-2 max-w-md mb-8 leading-relaxed text-xl lg:text-2xl w-full `}>
                             <span className="font-bold">
                                 Delivering end-to-end digital solutions:
                             </span>
@@ -147,12 +148,12 @@ const Hero = () => {
                             </span>
                         </div>
                         <div ref={ctaRef} className="hero-cta flex flex-wrap gap-4 ">
-                            <Link href={`https://wa.me/6285155394885`} target="_blank" rel="noopener noreferrer">
-                                <Button className="bg-orange-400 rounded-none py-8 text-base 2k:text-xl hover:bg-white hover:text-orange-400 border border-orange-400">
+                            <Link href={`https://wa.me/6285155394885`} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+                                <Button className="w-full md:w-auto bg-orange-400 rounded-none py-8 text-base 2k:text-xl hover:bg-white hover:text-orange-400 border border-orange-400">
                                     Book Strategy Call
                                 </Button>
                             </Link>
-                            <Link href={`#features`} rel="noopener noreferrer">
+                            <Link href={`#features`} rel="noopener noreferrer" className="hidden md:block">
                                 <Button className="bg-transparent rounded-none text-dark py-8 text-base 2k:text-xl hover:bg-transparent hover:text-orange-400 hover:underline hover:underline-offset-4">
                                     Learn More →
                                 </Button>
