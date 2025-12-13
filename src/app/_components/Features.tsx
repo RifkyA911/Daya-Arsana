@@ -185,28 +185,27 @@ const Features = () => {
 
 
     return (
-        <section id="features" ref={sectionRef} className="py-20 px-6 lg:px-12 font-sans">
+        <section id="features" ref={sectionRef} className="mt-18 md:mt-12 py-6 md:py-20 px-2 md:px-6 lg:px-12 font-sans">
             <div className="mx-auto">
-                <h2 className="section-heading text-3xl md:text-4xl lg:text-8xl 2k:text-[128px]! mb-4">
+                <h2 className="section-heading font-medium leading-12 md:leading-none text-[40px] lg:text-8xl 2k:text-[128px]! mb-4">
                     INTEGRATED <span className={`${playfair.className} italic`}>STRATEGIES</span>
-                    <br />
+                    <br className="hidden md:block" />{' '}
                     FOR <span className={`${playfair.className} italic`}>SCALABLE</span>
-                    <br />
+                    <br className="hidden md:block" />{' '}
                     <span className={`${playfair.className} italic`}>REVENUE</span> GROWTH
                 </h2>
 
-                <div className="section-features grid md:grid-cols-2 lg:grid-cols-4 mt-16">
+                <div className="section-features grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-0 mt-8 md:mt-16">
                     {features.map((feature, index) => (
                         <div
                             key={index}
                             ref={(el) => { cardsRef.current[index] = el; }}
-                            className="flex flex-col justify-center feature-card min-h-[340px] p-6 bg-card border border-border hover:border-amber-500 transition-all duration-300 hover:shadow-lg hover:bg-amber-500 hover:text-white"
+                            className={`flex flex-col justify-center feature-card md:min-h-[340px] p-4 md:p-6 border border-black  hover:border-amber-500 transition-all duration-300 hover:shadow-lg hover:bg-amber-500 hover:text-white`}
                         >
-
-                            <h3 className="text-xl font-semibold tracking-wider mb-4">
+                            <h3 className="text-base md:text-xl font-semibold tracking-wider mb-4">
                                 {feature.title}
                             </h3>
-                            <p className="text-lg mb-6 leading-relaxed">
+                            <p className="text-sm md:text-lg mb-6 leading-relaxed">
                                 {feature.description}
                             </p>
                             {/* <div className="pt-4 border-t border-border">
