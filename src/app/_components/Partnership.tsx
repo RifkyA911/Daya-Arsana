@@ -40,12 +40,13 @@ const Partnership = () => {
   }, []);
 
   return (
-    <section id="partnership" ref={sectionRef} className="py-16 px-6 lg:px-12">
-      <div className="max-w-8xl mx-auto">
-        <p className="font-sans partnership-text text-xl md:text-2xl lg:text-4xl 2k:text-[80px]! leading-relaxed text-foreground/90">
+    <section id="partnership" ref={sectionRef} className="py-6 md:py-16 px-2 md:px-6 lg:px-12">
+      <div className="xmax-w-8xl mx-auto">
+        <p className="font-sans partnership-text text-2xl lg:text-4xl 2k:text-[80px]! leading-relaxed text-foreground/90">
           PARTNERING WITH VISIONARY BRANDS TO SECURE MARKET{" "}
           <span className={`${playfair.className} italic`}>DOMINANCE</span> VIA AGILE TECH
-          INFRASTRUCTURE, DATA-DRIVEN BRANDING, AND{" "}
+          INFRASTRUCTURE,
+          <br className="block md:hidden" /> DATA-DRIVEN BRANDING, AND{" "}
           <span className={`${playfair.className} italic`}>PERFORMANCE-ORIENTED</span> MARKETING
           STRATEGIES
         </p>
