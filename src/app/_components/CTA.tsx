@@ -100,24 +100,27 @@ const CTA = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-24 px-6 lg:px-12 bg-card "
+      className={`py-8 md:py-24 px-0 md:px-6 lg:px-12 bg-card`}
     >
       <div className="mx-auto text-center cta-content">
-        <h2 className="text-4xl md:text-5xl lg:text-8xl 2k:text-[180px]! mb-4">
+        <h2 className="text-5xl lg:text-8xl 2k:text-[180px]! mb-4">
           READY TO <span className={`${playfair.className} italic `}>SCALE</span>?
         </h2>
-        <p className="lg:text-4xl 2k:text-[80px]! mt-8 mb-12">
+        <p className="text-3xl lg:text-4xl 2k:text-[80px]! mt-4 md:mt-8 mb-20 md:mb-32">
           ENGINEER YOUR REVENUE GROWTH
         </p>
 
-        <Link href="https://wa.me/6285155394885" target="_blank" rel="noopener noreferrer">
+        <Link href="https://wa.me/6285155394885" target="_blank" rel="noopener noreferrer" className="">
           <Button
             ref={buttonRef}
-            className="my-8 w-72 h-72 rounded-full bg-orange-500 text-primary-foreground font-medium 
-          flex items-center justify-center mx-auto shadow-xl shadow-primary/30
-          hover:shadow-2xl hover:shadow-primary/40 transition-shadow duration-300 cursor-pointer"
+            className="
+              flex items-center justify-center mx-auto my-8 
+              w-48 md:w-72 h-48 md:h-72 rounded-full bg-orange-500 
+              text-primary-foreground font-medium 
+              shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-shadow duration-300 cursor-pointer
+            "
           >
-            <span className="text-2xl">Book Strategy<br />Call</span>
+            <span className="text-xl md:text-2xl text-white! z-10">Book Strategy<br />Call</span>
           </Button>
         </Link>
       </div>
