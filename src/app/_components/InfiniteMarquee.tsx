@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import Image from "next/image";
+import { MarqueeDemo } from "./InfiniteMarquee2";
 
 const brands_top = [
   { name: "muzica", icon: "muzica.png" },
@@ -33,59 +34,68 @@ const InfiniteMarquee = () => {
 
     if (!top || !bot) return;
 
-    const makeMarquee = (el: HTMLDivElement, direction: 1 | -1) => {
-      const contentWidth = el.scrollWidth / 3; // karena lo duplicate 3x
+    const makeMarquee = (
+      el: HTMLDivElement,
+      direction: "ltr" | "rtl",
+      speed = 12 // makin kecil makin cepat
+    ) => {
+      const contentWidth = el.scrollWidth / 2;
+      const from = direction === "ltr" ? -contentWidth : 0;
+      const to = direction === "ltr" ? 0 : -contentWidth;
+
+      gsap.set(el, { x: from });
 
       gsap.to(el, {
-        x: direction * -contentWidth,
-        duration: 10,
+        x: to,
+        duration: speed,
         ease: "none",
         repeat: -1,
-        modifiers: {
-          x: gsap.utils.unitize((x) =>
-            ((parseFloat(x) % contentWidth) + contentWidth) % contentWidth * direction
-          )
-        }
       });
     };
 
-    makeMarquee(top, 1);   // kiri
-    makeMarquee(bot, -1);  // kanan
+    makeMarquee(top, "ltr", 8); // TOP lebih pelan
+    makeMarquee(bot, "rtl", 8); // BOTTOM lebih cepat
+
   }, []);
+
 
 
   return (
     <div className="w-full overflow-hidden py-8">
+      {/* <MarqueeDemo /> */}
       {/* TOP */}
-      <div ref={marqueeTopInnerRef} className="flex whitespace-nowrap">
-        {[...brands_top, ...brands_top, ...brands_top].map((brand, index) => (
-          <div
-            key={index}
-            className="flex items-center mx-16 flex-shrink-0"
-          >
-            <Image
-              src={`/images/marquee/${brand.icon}`}
-              alt={brand.name}
-              width={800}
-              height={800}
-              className="
+      <div className="overflow-hidden py-8">
+        <div ref={marqueeTopInnerRef} className="flex whitespace-nowrap">
+          {[...brands_top, ...brands_top].map((brand, index) => (
+            <div
+              key={index}
+              className="flex items-center mx-8 flex-shrink-0"
+            >
+              <Image
+                src={`/images/marquee/${brand.icon}`}
+                alt={brand.name}
+                width={800}
+                height={800}
+                className="
                 w-[120px] h-[80px]
                 md:w-[150px] md:h-[100px]
                 lg:w-[200px] lg:h-[130px]
                 xl:w-[250px] xl:h-[150px]
                 object-contain
               "
-            />
-          </div>
-        ))}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
+
       {/* BOTTOM */}
-      <div ref={marqueeBotInnerRef} className="flex whitespace-nowrap mt-10">
-        {[...brands_bottom, ...brands_bottom, ...brands_bottom].map((brand, index) => (
+      <div ref={marqueeBotInnerRef} className="flex whitespace-nowrap">
+        {[...brands_bottom, ...brands_bottom].map((brand, index) => (
           <div
             key={index}
-            className="flex items-center mx-16 flex-shrink-0"
+            className="flex items-center mx-8 flex-shrink-0"
           >
             <Image
               src={`/images/marquee/${brand.icon}`}
