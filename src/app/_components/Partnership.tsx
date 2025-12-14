@@ -40,9 +40,9 @@ const Partnership = () => {
   }, []);
 
   return (
-    <section id="partnership" ref={sectionRef} className="py-6 md:py-16 px-2 md:px-6 lg:px-12">
+    <section id="partnership" ref={sectionRef} className="mt-6 px-2 md:px-6 lg:px-12">
       <div className="xmax-w-8xl mx-auto">
-        <p className="font-sans partnership-text text-2xl lg:text-4xl 2k:text-[80px]! leading-relaxed text-foreground/90">
+        <p className="partnership-text text-2xl md:text-4xl lg:text-[70px] text-foreground/90">
           PARTNERING WITH VISIONARY BRANDS TO SECURE MARKET{" "}
           <span className={`${playfair.className} italic`}>DOMINANCE</span> VIA AGILE TECH
           INFRASTRUCTURE,
