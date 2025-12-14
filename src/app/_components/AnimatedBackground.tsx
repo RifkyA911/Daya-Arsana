@@ -40,7 +40,7 @@ const AnimatedBackground = () => {
             ref={containerRef}
             className="fixed inset-0 pointer-events-none overflow-hidden z-0"
         >
-            {[...Array(6)].map((_, i) => (
+            {[...Array(8)].map((_, i) => (
                 <div
                     key={i}
                     ref={(el) => {
