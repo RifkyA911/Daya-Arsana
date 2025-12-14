@@ -53,8 +53,8 @@ const InfiniteMarquee = () => {
       });
     };
 
-    makeMarquee(top, "ltr", 8); // TOP lebih pelan
-    makeMarquee(bot, "rtl", 8); // BOTTOM lebih cepat
+    makeMarquee(top, "ltr", 14); // TOP lebih pelan
+    makeMarquee(bot, "rtl", 14); // BOTTOM lebih cepat
 
   }, []);
 
@@ -63,10 +63,10 @@ const InfiniteMarquee = () => {
   return (
     <div className="w-full overflow-hidden py-8">
       {/* <MarqueeDemo /> */}
-      {/* TOP */}
       <div className="overflow-hidden py-8">
+        {/* TOP */}
         <div ref={marqueeTopInnerRef} className="flex whitespace-nowrap">
-          {[...brands_top, ...brands_top].map((brand, index) => (
+          {[...brands_top, ...brands_top, ...brands_top].map((brand, index) => (
             <div
               key={index}
               className="flex items-center mx-8 flex-shrink-0"
@@ -79,41 +79,39 @@ const InfiniteMarquee = () => {
                 className="
                 w-[120px] h-[80px]
                 md:w-[150px] md:h-[100px]
-                lg:w-[200px] lg:h-[130px]
-                xl:w-[250px] xl:h-[150px]
+                lg:w-[180px] lg:h-[130px]
                 object-contain
               "
               />
             </div>
           ))}
         </div>
-      </div>
-
-
-      {/* BOTTOM */}
-      <div ref={marqueeBotInnerRef} className="flex whitespace-nowrap">
-        {[...brands_bottom, ...brands_bottom].map((brand, index) => (
-          <div
-            key={index}
-            className="flex items-center mx-8 flex-shrink-0"
-          >
-            <Image
-              src={`/images/marquee/${brand.icon}`}
-              alt={brand.name}
-              width={800}
-              height={800}
-              className="
+        {/* BOTTOM */}
+        <div ref={marqueeBotInnerRef} className="flex whitespace-nowrap">
+          {[...brands_bottom, ...brands_bottom, ...brands_bottom].map((brand, index) => (
+            <div
+              key={index}
+              className="flex items-center mx-8 flex-shrink-0"
+            >
+              <Image
+                src={`/images/marquee/${brand.icon}`}
+                alt={brand.name}
+                width={800}
+                height={800}
+                className="
                 w-[120px] h-[80px]
                 md:w-[150px] md:h-[100px]
-                lg:w-[200px] lg:h-[130px]
-                xl:w-[250px] xl:h-[150px]
+                lg:w-[180px] lg:h-[130px]
                 object-contain
               "
-            />
-          </div>
+              />
+            </div>
 
-        ))}
+          ))}
+        </div>
       </div>
+
+
     </div>
   );
 };
