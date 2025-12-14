@@ -25,7 +25,7 @@ const AnimatedBackground = () => {
                 gsap.to(dot, {
                     x: Math.random() * window.innerWidth,
                     y: Math.random() * window.innerHeight,
-                    duration: 8 + Math.random() * 24,
+                    duration: 12 + Math.random() * 24,
                     ease: "power1.inOut",
                     onComplete: animateDot,
                 });
@@ -46,7 +46,7 @@ const AnimatedBackground = () => {
                     ref={(el) => {
                         if (el) dotsRef.current[i] = el;
                     }}
-                    className="absolute"
+                    className="absolute opacity-50 animate-float"
                 // className="absolute rounded-full bg-radial from-orange-200 from-20% via-orange-200 via-30% to-orange-100 to-20% blur-sm"
                 // style={{
                 //     width: `${200 + Math.random() * 40}px`,
@@ -55,6 +55,7 @@ const AnimatedBackground = () => {
                 >
                     <Image
                         src="/images/background-dot.png"
+                        className=""
                         alt="Dots"
                         width={600}
                         height={680}
