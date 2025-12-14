@@ -20,7 +20,7 @@ import Footer from "./_components/Footer";
 import Navbar from "./_components/Navbar";
 export default function Home() {
   return (
-    <div className="xcontainer mx-auto min-h-screen xmax-w-[1440px] font-sans">
+    <div className="xcontainer mx-auto min-h-screen max-w-[1580px] font-sans">
       <div className="p-4">
         <AnimatedBackground />
         <Navbar />
