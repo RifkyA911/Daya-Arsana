@@ -53,8 +53,8 @@ const InfiniteMarquee = () => {
       });
     };
 
-    makeMarquee(top, "ltr", 14); // TOP lebih pelan
-    makeMarquee(bot, "rtl", 14); // BOTTOM lebih cepat
+    makeMarquee(top, "ltr", 16); // TOP lebih pelan
+    makeMarquee(bot, "rtl", 16); // BOTTOM lebih cepat
 
   }, []);
 
