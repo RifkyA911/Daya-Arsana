@@ -48,8 +48,8 @@ const Footer = () => {
             © {new Date().getFullYear()} D·A Agency. All Rights Reserved.
           </p>
           <div className="flex gap-6 text-xs text-muted-foreground">
-            <span className="hover:text-foreground transition-colors cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-foreground transition-colors cursor-pointer">Terms of Service</span>
+            {/* <span className="hover:text-foreground transition-colors cursor-pointer">Privacy Policy</span>
+            <span className="hover:text-foreground transition-colors cursor-pointer">Terms of Service</span> */}
           </div>
         </div>
       </div>
