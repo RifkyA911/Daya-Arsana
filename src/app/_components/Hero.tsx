@@ -102,7 +102,7 @@ const Hero = () => {
 
 
     return (
-        <section ref={heroRef} className="relative min-h-screen pt-12 2k:pt-16! px-4 lg:px-8 font-sans">
+        <section ref={heroRef} className="relative pt-12 2k:pt-16! px-2 lg:px-8 font-sans">
             <div className="mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div
@@ -112,7 +112,7 @@ const Hero = () => {
                             className="hero-heading"
                         >
                             <h1
-                                className="text-6xl lg:text-8xl 2k:text-[128px]! leading-[1.1] mb-8"
+                                className="text-5xl lg:text-8xl leading-[1.1] mb-8"
                             >
                                 <span className={`${playfair.className} italic`}>ACCELERATE</span>
                                 <br />
