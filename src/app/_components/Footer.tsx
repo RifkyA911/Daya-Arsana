@@ -2,11 +2,11 @@
 
 const Footer = () => {
   return (
-    <footer id="footer" className="py-8 px-6 lg:px-28 bg-background border-y border-black">
+    <footer id="footer" className="py-8 px-6 md:px-12 lg:px-16 xl:px-20 bg-background border-y border-black">
       <div className="xmax-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row w-full gap-12 mb-16 justify-between md:text-2xl ">
           <div className="lg:max-w-[800px]">
-            <h3 className="text-[40px] md:text-7xl 2k:text-7xl font-medium">
+            <h3 className="text-[40px] lg:text-6xl xl:text-7xl font-medium">
               ACCELERATE GROWTH,
               MAXIMIZE YOUR ROI
             </h3>
