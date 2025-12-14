@@ -26,7 +26,7 @@ const Navbar = () => {
         </NavLink>
 
         {/* DESKTOP MENU — BENERAN TENGAH */}
-        <div className="hidden lg:flex items-center gap-4 absolute left-1/2 -translate-x-1/2">
+        <div className="hidden lg:flex items-center gap-4 absolute left-1/2 -translate-x-1/2 ">
           <NavLink href="/">Home</NavLink>
           <NavLink href="#features">Service</NavLink>
           <NavLink href="#partnership">About</NavLink>
@@ -83,7 +83,8 @@ const NavLink = ({
     onClick={onClick}
     className={cn(
       `
-        text-sm
+        text-base
+        font-medium
         px-4 py-3
         border border-orange-400
         text-orange-400
