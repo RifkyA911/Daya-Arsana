@@ -102,7 +102,7 @@ const Hero = () => {
 
 
     return (
-        <section ref={heroRef} className="relative pt-12 px-2 lg:px-4 xl:px-6">
+        <section ref={heroRef} className="relative pt-8 xl:pt-12 px-2 lg:px-4 xl:px-12">
             <div className="mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div
@@ -112,7 +112,7 @@ const Hero = () => {
                             className="hero-heading"
                         >
                             <h1
-                                className="text-5xl lg:text-7xl xl:text-8xl leading-[1.1] mb-8"
+                                className="text-5xl lg:text-7xl 2xl:text-8xl leading-[1.1] mb-8"
                             >
                                 <span className={`${playfair.className} italic`}>ACCELERATE</span>
                                 <br />
@@ -132,18 +132,15 @@ const Hero = () => {
                                 height={900}
                                 className="
                                 w-[380px]    
-                                md:w-[550px]    
-                                2xl:w-[640px]
-                                2k:w-[830px]!
                             "
                             />
                         </div>
                         <div
-                            className={`hero-text ${dmSans.className} flex flex-col gap-2 max-w-md mb-8 leading-relaxed text-xl lg:text-2xl w-full `}>
+                            className={`hero-text ${dmSans.className} flex flex-col gap-2 max-w-md mb-8 leading-relaxed text-xl 2xl:text-2xl w-full `}>
                             <span className="font-bold">
                                 Delivering end-to-end digital solutions:
                             </span>
-                            <span className="lg:w-[760px]">
+                            <span className="lg:w-[600px] 2xl:w-[760px]">
                                 from high-performance software engineering to data-driven marketing and fortified infrastructure.
                             </span>
                         </div>
@@ -169,9 +166,9 @@ const Hero = () => {
                             width={900}
                             height={900}
                             className="
-                                w-[550px]    
+                                w-[400px]
+                                md:w-[500px]    
                                 2xl:w-[640px]
-                                2k:w-[830px]!
                             "
                         />
                     </div>
