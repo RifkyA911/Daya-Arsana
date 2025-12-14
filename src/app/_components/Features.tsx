@@ -185,7 +185,7 @@ const Features = () => {
 
 
     return (
-        <section id="features" ref={sectionRef} className="mt-18 md:mt-12 py-6 md:py-20 px-2 md:px-6 lg:px-12 font-sans">
+        <section id="features" ref={sectionRef} className="mt-18 md:mt-12 py-6 md:py-20 px-2 lg:px-4 xl:px-12 font-sans">
             <div className="mx-auto">
                 <h2 className="section-heading font-medium leading-12 md:leading-none text-[40px] lg:text-8xl 2k:text-[128px]! mb-4">
                     INTEGRATED <span className={`${playfair.className} italic`}>STRATEGIES</span>

@@ -40,7 +40,7 @@ const Partnership = () => {
   }, []);
 
   return (
-    <section id="partnership" ref={sectionRef} className="mt-6 px-2 md:px-6 lg:px-12">
+    <section id="partnership" ref={sectionRef} className="mt-6 px-2 lg:px-4 xl:px-12">
       <div className="xmax-w-8xl mx-auto">
         <p className="partnership-text text-2xl md:text-4xl lg:text-[70px] text-foreground/90">
           PARTNERING WITH VISIONARY BRANDS TO SECURE MARKET{" "}
