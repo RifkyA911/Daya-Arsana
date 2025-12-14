@@ -100,7 +100,7 @@ const CTA = () => {
   return (
     <section
       ref={sectionRef}
-      className={`py-8 md:py-24 px-0 md:px-6 lg:px-12 bg-card`}
+      className={`mt-8 mb-24 px-0 md:px-6 lg:px-12 bg-card`}
     >
       <div className="mx-auto text-center cta-content">
         <h2 className="text-5xl lg:text-8xl 2k:text-[180px]! mb-4">
