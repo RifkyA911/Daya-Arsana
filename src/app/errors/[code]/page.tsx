@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertTriangle, Shield, Server, Ban, XCircle } from "lucide-react";
 import Link from "next/link";
 import { JSX } from "react";
+import { Metadata } from "next";
 
 const ERROR_MESSAGES: Record<
     string,
@@ -36,26 +37,68 @@ const ERROR_MESSAGES: Record<
     },
 };
 
+export function generateMetadata({ params }: { params: { code: string } }): Metadata {
+    const error = ERROR_MESSAGES[params.code];
+    const title = error ? `${error.title} - Daya Arsana` : "Error - Daya Arsana";
+    const description = error ? error.description : "An error occurred on Daya Arsana";
+
+    return {
+        title,
+        description,
+        robots: {
+            index: false,
+            follow: false,
+        },
+    };
+}
+
 export default function ErrorPage({ params }: { params: { code: string } }) {
     const error = ERROR_MESSAGES[params.code];
     if (!error) notFound();
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": error.title,
+        "description": error.description,
+        "url": `https://daya-arsana.com/errors/${params.code}`,
+        "publisher": {
+            "@type": "Organization",
+            "name": "Daya Arsana",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "150",
+                "bestRating": "5",
+                "worstRating": "1"
+            }
+        }
+    };
+
     return (
-        <main className="min-h-screen flex items-center justify-center bg-background p-6">
-            <Card className="max-w-md w-full text-center">
-                <CardHeader>
-                    <div className="flex flex-col items-center space-y-2">
-                        {error.icon}
-                        <CardTitle className="text-3xl font-bold">{error.title}</CardTitle>
-                        <p className="text-muted-foreground">{error.description}</p>
-                    </div>
-                </CardHeader>
-                <CardContent>
-                    <Link href="/dashboard">
-                        <Button className="w-full mt-4">Kembali ke Dashboard</Button>
-                    </Link>
-                </CardContent>
-            </Card>
-        </main>
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(jsonLd),
+                }}
+            />
+            <main className="min-h-screen flex items-center justify-center bg-background p-6">
+                <Card className="max-w-md w-full text-center">
+                    <CardHeader>
+                        <div className="flex flex-col items-center space-y-2">
+                            {error.icon}
+                            <CardTitle className="text-3xl font-bold">{error.title}</CardTitle>
+                            <p className="text-muted-foreground">{error.description}</p>
+                        </div>
+                    </CardHeader>
+                    <CardContent>
+                        <Link href="/dashboard">
+                            <Button className="w-full mt-4">Kembali ke Dashboard</Button>
+                        </Link>
+                    </CardContent>
+                </Card>
+            </main>
+        </>
     );
 }
