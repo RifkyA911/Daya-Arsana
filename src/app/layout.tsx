@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans, Playfair_Display, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,6 +21,22 @@ const dmSans = DM_Sans({
   preload: true,
   adjustFontFallback: false,
   fallback: ["serif"],
+});
+
+export const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic", "normal"],
+  display: "swap",
+  variable: "--font-playfair",
+  preload: true,
+  adjustFontFallback: false,
+  fallback: ["serif"],
+});
+
+export const dmSans2 = DM_Sans({
+  subsets: ["latin"],
+  weight: ["500"],
 });
 
 export const metadata: Metadata = {
@@ -79,6 +95,7 @@ export const metadata: Metadata = {
     google: "your-google-site-verification-code", // Ganti dengan kode verifikasi Google
   },
 };
+
 
 export default function RootLayout({
   children,

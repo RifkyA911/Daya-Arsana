@@ -110,7 +110,7 @@ const CTA = () => {
           ENGINEER YOUR REVENUE GROWTH
         </p>
 
-        <Link href="https://wa.me/6285155394885" target="_blank" rel="noopener noreferrer" className="">
+        <Link href="/services/software-development" className="">
           <Button
             ref={buttonRef}
             className="

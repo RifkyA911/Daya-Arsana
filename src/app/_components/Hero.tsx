@@ -1,24 +1,10 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { DM_Sans, Playfair_Display } from "next/font/google";
 import Link from "next/link";
 import HeroClient from "./HeroClient";
+import { dmSans2, playfair } from "../layout";
 
-const playfair = Playfair_Display({
-    subsets: ["latin"],
-    weight: ["400"],
-    style: ["italic", "normal"],
-    display: "swap",
-    variable: "--font-playfair",
-    preload: true,
-    adjustFontFallback: false,
-    fallback: ["serif"],
-});
 
-const dmSans = DM_Sans({
-    subsets: ["latin"],
-    weight: ["500"],
-});
 
 const Hero = () => {
     return (
@@ -45,7 +31,7 @@ const Hero = () => {
                                 priority
                             />
                         </div>
-                        <div className={`hero-text ${dmSans.className} flex flex-col gap-2 max-w-md mb-8 leading-relaxed text-xl 2xl:text-2xl w-full`}>
+                        <div className={`hero-text ${dmSans2.className} flex flex-col gap-2 max-w-md mb-8 leading-relaxed text-xl 2xl:text-2xl w-full`}>
                             <span className="font-bold">Delivering end-to-end digital solutions:</span>
                             <span className="lg:w-[600px] 2xl:w-[760px]">
                                 from high-performance software engineering to data-driven marketing and fortified infrastructure.

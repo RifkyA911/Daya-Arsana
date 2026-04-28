@@ -23,7 +23,7 @@ export default function Home() {
     "description": "Daya Arsana provides end-to-end agile development, cyber security, brand activation, and digital marketing solutions.",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+1-XXX-XXX-XXXX", // Ganti dengan nomor telepon aktual
+      "telephone": "https://wa.me/6285155394885", // Ganti dengan nomor telepon aktual
       "contactType": "customer service",
     },
     "sameAs": [
